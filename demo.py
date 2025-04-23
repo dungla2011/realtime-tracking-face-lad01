@@ -27,7 +27,7 @@ import torch.backends.cudnn as cudnn
 import numpy as np
 import streamlit as st
 import tempfile
-from google_drive_downloader import GoogleDriveDownloader as gdd
+from googledrivedownloader import download_file_from_google_drive
 import os
 class_label = ['person', 'head']
 
@@ -140,22 +140,30 @@ def predict(model, deepsort_model,img):
 
 if __name__ == "__main__":
 
-    st.header("Phan Minh Toan @Real-Time Detection & Tracking")
+    st.header("DEMO DungLAD @Real-Time Detection & Tracking")
 
     if (not os.path.exists('./yolov5n.pt')):
-        with st.spinner(text="Download detection model in progress..."):
-            gdd.download_file_from_google_drive(file_id='1V5hUspqnI6uvBIPyccga9lsz8-fWFQ9p',
-                                    dest_path='./yolov5n.pt')
+        print("File not found, return")
+        exit(0)
+
+        # with st.spinner(text="Download detection model in progress..."):
+        #     download_file_from_google_drive(file_id='1V5hUspqnI6uvBIPyccga9lsz8-fWFQ9p',
+        #                             dest_path='./yolov5n.pt')
 
     if (not os.path.exists('./ckpt.t7')):
-        with st.spinner(text="Download tracking model in progress..."):
-            gdd.download_file_from_google_drive(file_id='1GJpFNw0fU-6X1z8_x_Mb7f5A9pRtLZt_',
-                                    dest_path='./ckpt.t7')
+        print("File not found, return")
+        exit(0)
+        
+        # with st.spinner(text="Download tracking model in progress..."):
+        #     download_file_from_google_drive(file_id='1GJpFNw0fU-6X1z8_x_Mb7f5A9pRtLZt_',
+        #                             dest_path='./ckpt.t7')
 
     if (not os.path.exists('./crowdhuman_yolov5m.pt')):
-        with st.spinner(text="Download tracking model in progress..."):
-            gdd.download_file_from_google_drive(file_id='1Bz_tZia6BeAy7PW1LJm5x8469D0ooDtQ',
-                                    dest_path='./crowdhuman_yolov5m.pt')
+        print("File not found, return")
+        exit(0)
+        # with st.spinner(text="Download tracking model in progress..."):
+        #     download_file_from_google_drive(file_id='1Bz_tZia6BeAy7PW1LJm5x8469D0ooDtQ',
+        #                             dest_path='./crowdhuman_yolov5m.pt')
 
 
     deepsort = DeepSort(model_path='ckpt.t7', use_cuda=False)

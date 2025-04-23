@@ -27,7 +27,7 @@ import torch.backends.cudnn as cudnn
 import numpy as np
 import streamlit as st
 import tempfile
-from google_drive_downloader import GoogleDriveDownloader as gdd
+from googledrivedownloader import GoogleDriveDownloader as gdd
 import os
 class_label = ['person', 'head']
 
