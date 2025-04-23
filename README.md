@@ -3,6 +3,7 @@
 **- Create enviroment and Run commands:**
 
 C:\Users\pc2\AppData\Local\Programs\Python\Python38\python.exe -m venv venv
+
 .\venv\Scripts\Activate.ps1
 
 python.exe --version
